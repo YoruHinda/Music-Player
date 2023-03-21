@@ -1,5 +1,6 @@
 package com.github.yoruhinda.musicplayer.ui.panels;
 
+import com.github.yoruhinda.musicplayer.model.MusicFile;
 import com.github.yoruhinda.musicplayer.util.Colors;
 
 import javax.swing.*;
@@ -7,9 +8,9 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class MusicListPanel extends JPanel {
-    private DefaultListModel<String> fileDefaultListModel = new DefaultListModel<>();
-    private JList<String> musicList = new JList<>(fileDefaultListModel);
-    private JScrollPane jScrollPane = new JScrollPane(musicList);
+    private DefaultListModel<MusicFile> defaultMusicNameListModel = new DefaultListModel<>();
+    private JList<MusicFile> musicNameList = new JList<>(defaultMusicNameListModel);
+    private JScrollPane scrollPane = new JScrollPane(musicNameList);
 
     public MusicListPanel() {
         initialize();
@@ -17,22 +18,30 @@ public class MusicListPanel extends JPanel {
 
     private void initialize() {
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(250,100));
+        setPreferredSize(new Dimension(250, 100));
 
-        jScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),
+        scrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),
                 "Music List",
                 TitledBorder.DEFAULT_JUSTIFICATION,
                 TitledBorder.DEFAULT_POSITION,
-                new Font("sans-sarif", Font.BOLD,12),
+                new Font("sans-sarif", Font.BOLD, 12),
                 Color.WHITE));
 
-        jScrollPane.setBackground(Colors.AQUA_MARINE);
-        musicList.setBackground(Colors.AQUA_MARINE);
+        scrollPane.setBackground(Colors.AQUA_MARINE);
+        musicNameList.setBackground(Colors.AQUA_MARINE);
 
-        musicList.setForeground(Color.white);
-        musicList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        musicList.setLayoutOrientation(JList.VERTICAL);
+        musicNameList.setForeground(Color.white);
+        musicNameList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        musicNameList.setLayoutOrientation(JList.VERTICAL);
 
-        add(jScrollPane);
+        add(scrollPane);
+    }
+
+    public DefaultListModel<MusicFile> getDefaultMusicNameListModel() {
+        return defaultMusicNameListModel;
+    }
+
+    public JList<MusicFile> getMusicNameList() {
+        return musicNameList;
     }
 }

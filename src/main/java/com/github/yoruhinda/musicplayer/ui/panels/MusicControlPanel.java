@@ -45,4 +45,16 @@ public class MusicControlPanel extends JPanel {
         add(play);
         add(advance);
     }
+
+    public JButton getPlay() {
+        return play;
+    }
+
+    public JButton getAdvance() {
+        return advance;
+    }
+
+    public JButton getRetreat() {
+        return retreat;
+    }
 }

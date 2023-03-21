@@ -2,7 +2,7 @@
 
 ## Description
 
-A Music Player with java.
+Music Player with java swing ui library and jlayer api library to play mp3 files.
 
 ![musicplayer.png](musicplayer.png)
 

@@ -7,10 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MusicInfoPanel extends JPanel {
-    private JSlider musicTime = new JSlider();
     private JLabel musicImage = new JLabel();
     private JLabel musicName = new JLabel();
-
 
     public MusicInfoPanel() {
         initialize();
@@ -33,16 +31,15 @@ public class MusicInfoPanel extends JPanel {
 
         musicImage.setIcon(ImagesUtil.defaultImageIcon);
 
-        musicName.setText("Click in play button");
-        musicName.setFont(new Font("sans-sarif", Font.BOLD, 15));
+        musicName.setText("Click in button");
+        musicName.setFont(new Font("sans-sarif", Font.BOLD, 20));
         musicName.setForeground(Color.WHITE);
-
-        musicTime.setBackground(Colors.AQUA_MARINE);
-        musicTime.setValue(0);
-        musicTime.setEnabled(false);
 
         add(musicImage, gridBagConstraints);
         add(musicName, gridBagConstraints);
-        add(musicTime, gridBagConstraints);
+    }
+
+    public JLabel getMusicName() {
+        return musicName;
     }
 }
